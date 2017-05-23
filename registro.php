@@ -22,6 +22,8 @@
 			exit;
 		}
 	}
+	//Cocinamos
+	$contra="S@7r0".$contra."p1M3^|RO";
 	//Esta parte es para que cheque si ya hay un usuario con el mismo nombre y entonces no lo vuelvaa registrar
 	$verificar_usuario=mysqli_query($connect, "SELECT * FROM USUARIOS WHERE usuario='$usu'");
 	if(mysqli_num_rows($verificar_usuario)>0)
