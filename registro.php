@@ -9,7 +9,7 @@
 	//Validaciones
 	$valida = array('Nombre' => '/^[A-ZÑÁÉÍÓÚÜ][a-zñáéíóúü].*$/','Fecha_nac' => '/\d{4}([\-/.])(0?[1-9]|1[1-2])\1(3[01]|[12][0-9]|0?[1-9])$/','Correo' => '/(?=\w.*@)^.*(comunidad|gmail|outlook|live|hotmail)\.com$/','Usuario' => '/^(.*[A-ZÑ]|.*[a-zñ]|.*\W|.*\d).{1,}$/','Clave' => '/^(?=.*[A-ZÑ]{1}).*(?=.*[a-zñ]{1}).*(?=.*\W{1}).*(?=.*\d{1}).*[^\s]{8,}$/');
 	//Insertar a la base
-	$insertar="INSERT INTO USUARIOS(Nombre,Fecha_Nac,Correo,Usuario,Contra) VALUES ('$nom','nac','$correo','$usu','$contra')";
+	$insertar="INSERT INTO USUARIOS(Nombre,Fecha_Nac,Correo,Usuario,Contra) VALUES ('$nom','$nac','$correo','$usu','$contra')";
 	//Validacion de datos
 	foreach ($valida as $Jo => $sec) 
 	{	
