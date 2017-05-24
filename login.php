@@ -1,10 +1,10 @@
 <?php
-$usu = $_POST['Usuario'];
-$contra = $_POST['Clave'];
+$usu = $_POST['username'];
+$contra = $_POST['password'];
 $datos = array();
 $valus = 0;
 $conn=mysqli_connect('localhost','root','','NavyBreak');
-	$query="select usuario,contra from USUARIOS;";
+	$query="select username,password from USER;";
 	$res=mysqli_query($conn,$query);
 	$fila=mysqli_fetch_assoc($res);
 	$concat="";
@@ -15,7 +15,7 @@ while($fila)
 	$fila=mysqli_fetch_assoc($res);
 }
 foreach ($datos as $key => $exis) 
-	if ($usu == $exis['nombre_usuario'])
+	if ($usu == $exis['username'])
 		$valus = 1;
 if ($valus == 0)
 	echo '<script> 
@@ -23,7 +23,7 @@ if ($valus == 0)
 				</script>';
 else
 	foreach ($datos as $key => $exis) 
-	if ($usu == $exis['nombre_usuario'])
+	if ($usu == $exis['username'])
 	{
 		if ($contra == $exis['password'])
 		{
