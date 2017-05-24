@@ -1,30 +1,32 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8"/>
-		<title>Navy Break | Inicia sesión o registrate</title>
-		<script type="text/javascript" src="jquery-3.2.1.js"></script>
-	</head>
-	<body>
-		<form method="_POST" action="registro.php"><br/>
-			Nombre: <input type="text" name="Nombre"/><br/>
-			Fecha de Nacimiento: <input type="date" name="Fecha_nac"/><br/>
-			Correo: <input type="email" name="Correo"/><br/>
-			Nombre de usuario: <input type="text" name="Usuario"/><br/>
-			Contraseña: <input type="password" name="Clave" id="Clave"/><br/>
-			Confirma contraseña: <input type="password" name="Clave1" id="Clave1"/><br/>
-			<input type="submit"/>
-		</form>
-		<script>
-			//$(document).on(evento, selector, function() {...});
-			var nombre = $("input(0)");
-			var nac = $("input(1)");
-			var correo = $("input(2)");
-			var nombre = $("input(3)");
-			var clave = $("input(4)");
-			var reclave = $("input(5)");
-			if (clave !== reclave)
-				alert("Las contraseñas no coinciden");
-		</script>
-	</body>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Navy Break | Inicia sesión o registrate</title>
+		<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	</head>
+	<body>
+		<form method="_POST" action="registro.php"><br/>
+			Nombre: <input type="text" name="Nombre"/><br/>
+			Fecha de Nacimiento: <input type="date" name="Fecha_nac"/><br/>
+			Correo: <input type="email" name="Correo"/><br/>
+			Nombre de usuario: <input type="text" name="Usuario"/><br/>
+			Contraseña: <input type="password" name="Clave"/><br/>
+			Confirma contraseña: <input type="password" name="Clave1"/><br/>
+			<input type="submit"/>
+		</form>
+		<script>
+			//declaracion de variables
+			{var nombre = $("input(0)");
+			var nac = $("input(1)");
+			var correo = $("input(2)");
+			var user = $("input(3)");
+			var clave = $("input(4)");
+			var reclave = $("input(5)");}
+			//validacion por eventos
+			nombre.blur(function() {
+				nombre.attr()
+			});
+		</script>
+	</body>
 </html>
