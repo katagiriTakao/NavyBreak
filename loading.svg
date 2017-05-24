@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<svg width='300px' height='300px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-ring">
+		<circle cx="50" cy="50" r="40" stroke-dasharray="160 80" stroke="DarkBlue" fill="none" stroke-width="20">
+		<!--repeatCount se tiene que recondicionar,solo se va a repetir 11 veces -->
+		<animateTransform attributeName="transform" type="rotate" values="0 50 50;180 50 50;360 50 50;" keyTimes="0;0.5;1" dur="1s" repeatCount="11" begin="0s"></animateTransform>
+	</circle>
+</svg>
