@@ -6,5 +6,19 @@
 		<script type="text/javascript" src="jquery-3.2.1.js"></script>
 	</head>
 	<body>
+		<form method="_POST" action="registro.php">
+			Nombre: <input type="text" name="Nombre"/>
+			Fecha de Nacimiento: <input type="date" name="Fecha_nac"/>
+			Correo: <input type="email" name="Correo"/>
+			Nombre de usuario: <input type="text" name="Usuario"/>
+			Contraseña: <input type="password" name="Clave" id="Clave"/>
+			Confirma contraseña: <input type="password" name="Clave1" id="Clave1"/>
+		</form>
+		<script>
+			var clave = $("Clave");
+			var reclave = $("Clave1");
+			if (clave !== reclave)
+				alert("Las contraseñas no coinciden");
+		</script>
 	</body>
 </html>
