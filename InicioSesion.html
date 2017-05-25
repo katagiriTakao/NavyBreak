@@ -3,19 +3,54 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<title>Navy Break | Inicia sesión o registrate</title>
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<script type="text/javascript" src="jquery-3.2.1.js"></script>
 	</head>
 	<body>
-		<form method="_POST" action="registro.php"><br/>
-			Nombre: <input type="text" name="Nombre"/><br/>
-			Fecha de Nacimiento: <input type="date" name="Fecha_nac"/><br/>
-			Correo: <input type="email" name="Correo"/><br/>
-			Nombre de usuario: <input type="text" name="Usuario"/><br/>
-			Contraseña: <input type="password" name="Clave"/><br/>
-			Confirma contraseña: <input type="password" name="Clave1"/><br/>
-			<input type="submit"/>
-		</form>
+		<div class="row">
+			<form method="POST" action="registro.php" class="col s12">
+				
+					<div class="input-field col s12 m6">
+						<input id="nomb" type="text" name="Nombre" class="validate"/>
+						<label for="nomb" data-error="Nombre inválido" data-success="">Nombre</label>
+					</div>
+				
+				
+					<div class="input-field col s12 m6">
+						<input id="nac" type="date" name="Fecha_nac" class="validate"/>
+						<label for="nac" data-error="Fecha inválida" data-success="">Fecha de Nacimiento</label>
+					</div>
+				
+					<div class="input-field col s12 m6">
+						<input id="email" type="email" name="Correo" class="validate"/>
+						<label for="email" data-error="Correo inválido" data-success="">Correo</label>
+					</div>
+				
+					<div class="input-field col s12 m6">
+						<input id="usr" type="text" name="Usuario" class="validate"/>
+						<label for="usr" data-error="Nombre de usuario inválido" data-success="">Nombre de usuario</label>
+					</div>
+				
+					<div class="input-field col s12 m6">
+						<input id="pass" type="password" name="Clave" class="validate"/>
+						<label for="pass" data-error="Contraseña inválida" data-success="">Contraseña</label>
+					</div>
+				
+					<div class="input-field col s12 m6">
+						<input id="repass" type="password" name="Clave1" class="validate"/>
+						<label for="repass" data-error="Las contraseñas no coinciden" data-success="">Confirma contraseña</label>
+					</div>
+				
+					<div class="input-field col s12">
+						<input type="submit"/>
+					</div>
+				
+			</form>
+		</div>
 		<script>
+			/*/ /^(?=.*[A-ZÑ]{1}).*(?=.*[a-zñ]{1}).*(?=.*\W{1}).*(?=.*\d{1}).*[\S]{8,}$/
 			//declaracion de variables
 			{var nombre = $("input(0)");
 			var nac = $("input(1)");
@@ -25,8 +60,13 @@
 			var reclave = $("input(5)");}
 			//validacion por eventos
 			nombre.blur(function() {
-				nombre.attr()
+				if(nombre.length <= 4)
+					alert("Nombre inválido");
 			});
+			nac.blur(function() {
+				if(nac.attr("value") != )
+					alert("Nombre inválido");
+			});*/
 		</script>
 	</body>
 </html>
