@@ -52,32 +52,28 @@
 			var nac = $("#nac");
 			var correo = $("#email");
 			var user = $("#usr");
-			var clave = $("#pass"");
+			var clave = $("#pass");
 			var reclave = $("#repass");}
 			//validacion por eventos
-			nombre.blur(function() {
+			nombre.onfocusout(function() {
 				if(nombre === undefined)
 					alert("Nombre inválido");
 			});
-			nac.blur(function() {
+			nac.onfocusout(function() {
 				if(nac === undefined)
 					alert("Fecha inválida");
 			});
-			correo.blur(function() {
+			correo.onfocusout(function() {
 				if(correo === undefined)
 					alert("Correo inválido");
 			});
-			user.blur(function() {
+			user.onfocusout(function() {
 				if(user === undefined)
 					alert("Nombre de usuario inválido");
 			});
-			nac.blur(function() {
-				if(nac.attr("value") != )
-					alert("Nombre inválido");
-			});
-			nac.blur(function() {
-				if(nac.attr("value") != )
-					alert("Nombre inválido");
+			reclave.onfocusout(function() {
+				if(clave.attr("value") !== reclave.attr("value"))
+					alert("Contraseñas no coinciden");
 			});
 		</script>
 	</body>
