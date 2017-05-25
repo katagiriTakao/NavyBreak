@@ -1,0 +1,1 @@
+A la base de datos le faltan las constraints, sin embargo, todas las tablas ya estan hechas.
