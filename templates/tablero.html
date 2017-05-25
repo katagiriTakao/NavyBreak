@@ -137,12 +137,26 @@
 	
 			$(document).ready(function(){
     			$("td").click(function(){
-       				console.log($(this).html());
+       				var attack=$(this).html();
        				//la casilla seleccionada para atacar sale en el output del $(this).html, el console log solo existe para hacer algo como un debug
+       				console.log(attack);
+
+       				$.ajax({
+       							type: "POST",
+       							url: "../programs/php/trancition.php",
+       							data: attack,
+       							success:function(attack){
+       								console.log("success");
+       							}
+
+
+
+       				});
   				  });
 				});
 			$("td").hover($(this).attr("style='background-color:blue'"));
 			
+
 		</script>
 		</body>
 
