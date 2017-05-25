@@ -1,0 +1,15 @@
+
+//Busqueda de datos propios completos del usuario
+ select * from user 
+ where username="<<nombre de usuario>>";
+
+//Busqueda de post
+select * from user join post on user.id_user=post.id_userpost 
+where username="<<nombre de usuario>>";
+
+//Busqueda de comentarios
+ select * from user join post on user.id_user=post.id_userpost
+ join comment on post.id_post=comment.id_postcomment 
+ where username="<<nombre de usuario>>";
+
+ //
