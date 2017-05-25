@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		
 		<meta charset="UTF-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="../styles/css/tablero.css"/>
@@ -135,15 +136,12 @@
 		<script>
 	
 			$(document).ready(function(){
-    			$("td").dblclick(function(){
-       				$(this).toggleClass( "dbl" );
-       				//aqui agrego la funcion para comparar las clases dbl con el mapa contrario, 
-       				$("p").html()
-       				$(this).toggleClass( "dbl" );
+    			$("td").click(function(){
+       				console.log($(this).html());
+       				//la casilla seleccionada para atacar sale en el output del $(this).html, el console log solo existe para hacer algo como un debug
   				  });
 				});
-
-
+			$("td").hover($(this).attr("style='background-color:blue'"));
 			
 		</script>
 		</body>
