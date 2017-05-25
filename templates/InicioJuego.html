@@ -151,17 +151,19 @@
 			</div>
 		</div>
 		<script>
-			$("#i2").dblclick(function(){
-				console.log("Barco pequeño seleccionado");
-			});
-			$("#i3").dblclick(function(){
-				console.log("Barco mediano seleccionado");
-			});
-			$("#i4").dblclick(function(){
-				console.log("Barco grande seleccionado");
-			});
-			$("#i5").dblclick(function(){
-				console.log("Barco extragrande seleccionado");
+			$(document).ready(function(){
+				$("#i2").dblclick(function(){
+					$("#txt").innerHTML = "Barco pequeño seleccionado";
+				});
+				$("#i3").dblclick(function(){
+					$("#txt").innerHTML = "Barco mediano seleccionado";
+				});
+				$("#i4").dblclick(function(){
+					$("#txt").innerHTML = "Barco grande seleccionado";
+				});
+				$("#i5").dblclick(function(){
+					$("#txt").innerHTML = "Barco extragrande seleccionado";
+				});
 			});
 		</script>
 	</body>
