@@ -30,10 +30,10 @@
 					</div>
 					<div class="input-field col s12 m6">
 						<input id="pass" type="password" name="Clave" class="validate"/>
-						<label for="passworf" data-error="Contraseña inválida" data-success="" class="active">Contraseña</label>
+						<label for="password" data-error="Contraseña inválida" data-success="" class="active">Contraseña</label>
 					</div>
 					<div class="input-field col s12 m6">
-						<input id="repass" type="password" name="Clave1" class="validate"/>
+						<input id="repass" type="password" name="Clave1" class="validate" />
 						<label for="password" data-error="Las contraseñas no coinciden" data-success="" class="active">Confirma contraseña</label>
 					</div>
 					<div class="input-field col s12">
@@ -68,12 +68,13 @@
 				if(user === undefined)
 					alert("Nombre de usuario inválido");
 			});
-			subm.submit(function() {
+			reclave.mouse(console.log("jphp"));
+			$("input").click(function() {
 				if (clave.length == 0 || reclave.length == 0) {
 					alert("Hay un campo vacío");
 					return false;
 				}
-				if (clave != reclave) {
+				if (clave.attr("value") != reclave.attr("value")) {
 					alert("Contraseñas no coinciden");
 					return false;
 				}
