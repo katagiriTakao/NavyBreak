@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.1.21-MariaDB, for Win32 (AMD64)
+-- MySQL dump 10.13  Distrib 5.5.8, for Win32 (x86)
 --
--- Host: localhost    Database: localhost
+-- Host: localhost    Database: navybreak
 -- ------------------------------------------------------
--- Server version	10.1.21-MariaDB
+-- Server version	5.5.8
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +32,11 @@ CREATE TABLE `cgame` (
   `cooshtwo` varchar(50) DEFAULT NULL,
   `coosetwo` varchar(300) DEFAULT NULL,
   `ptwo_points` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`id_game`)
+  PRIMARY KEY (`id_game`),
+  KEY `id_userone` (`id_userone`),
+  KEY `id_usertwo` (`id_usertwo`),
+  CONSTRAINT `cgame_ibfk_2` FOREIGN KEY (`id_usertwo`) REFERENCES `user` (`id_user`),
+  CONSTRAINT `cgame_ibfk_1` FOREIGN KEY (`id_userone`) REFERENCES `user` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -60,7 +64,11 @@ CREATE TABLE `comment` (
   `comment_time` varchar(20) DEFAULT NULL,
   `likes` int(11) DEFAULT NULL,
   `mecaga` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_comment`)
+  PRIMARY KEY (`id_comment`),
+  KEY `id_postcomment` (`id_postcomment`),
+  KEY `id_usercomment` (`id_usercomment`),
+  CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`id_usercomment`) REFERENCES `user` (`id_user`),
+  CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`id_postcomment`) REFERENCES `post` (`id_post`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -70,6 +78,7 @@ CREATE TABLE `comment` (
 
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
+INSERT INTO `comment` VALUES ('7788','89',2,'soyelcomentario de rody','2017-05-25 04:19',2,1);
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,7 +93,9 @@ CREATE TABLE `duels` (
   `id_duels` varchar(10) NOT NULL,
   `id_userchallenger` int(11) DEFAULT NULL,
   `status` varchar(3) DEFAULT NULL,
-  PRIMARY KEY (`id_duels`)
+  PRIMARY KEY (`id_duels`),
+  KEY `id_userchallenger` (`id_userchallenger`),
+  CONSTRAINT `duels_ibfk_1` FOREIGN KEY (`id_userchallenger`) REFERENCES `user` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -107,7 +118,13 @@ DROP TABLE IF EXISTS `notifications`;
 CREATE TABLE `notifications` (
   `id_usernotif` int(11) DEFAULT NULL,
   `id_report` varchar(10) DEFAULT NULL,
-  `id_duels` varchar(10) DEFAULT NULL
+  `id_duels` varchar(10) DEFAULT NULL,
+  KEY `id_usernotif` (`id_usernotif`),
+  KEY `id_report` (`id_report`),
+  KEY `id_duels` (`id_duels`),
+  CONSTRAINT `notifications_ibfk_3` FOREIGN KEY (`id_duels`) REFERENCES `duels` (`id_duels`),
+  CONSTRAINT `notifications_ibfk_1` FOREIGN KEY (`id_usernotif`) REFERENCES `user` (`id_user`),
+  CONSTRAINT `notifications_ibfk_2` FOREIGN KEY (`id_report`) REFERENCES `reports` (`id_report`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -132,7 +149,9 @@ CREATE TABLE `post` (
   `id_userpost` int(11) DEFAULT NULL,
   `post_text` varchar(140) DEFAULT NULL,
   `post_time` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id_post`)
+  PRIMARY KEY (`id_post`),
+  KEY `id_userpost` (`id_userpost`),
+  CONSTRAINT `post_ibfk_1` FOREIGN KEY (`id_userpost`) REFERENCES `user` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -142,6 +161,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
+INSERT INTO `post` VALUES ('89',2,'Soy el segundo XDxdxdDXDXdxdxdXdxD','2017-05-25 04:06'),('90',1,'Soy el primero XDxdxdDXDXdxdxdXdxD','2017-05-25 04:06');
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,6 +202,7 @@ CREATE TABLE `user` (
   `rname` varchar(20) DEFAULT NULL,
   `b_day` char(10) DEFAULT NULL,
   `email` varchar(40) DEFAULT NULL,
+  `wgames` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -192,6 +213,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'willy','12345','gilberto','2000-07-21','wilbe@hotmail.com',90),(2,'rody','12345','rodrigo','2000-08-21','rodym@hotmail.com',90);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -204,4 +226,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-25 10:40:10
+-- Dump completed on 2017-05-25 16:57:23
