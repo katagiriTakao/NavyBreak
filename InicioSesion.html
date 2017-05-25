@@ -37,15 +37,11 @@
 						<label for="password" data-error="Las contraseñas no coinciden" data-success="" class="active">Confirma contraseña</label>
 					</div>
 					<div class="input-field col s12">
-						<input type="submit"/>
+						<input id="subm" type="submit"/>
 					</div>
 			</form>
 		</div>
 		<script>
-			$('.datepicker').pickadate({
-				selectMonths: true, // Creates a dropdown to control month
-				selectYears: 15 // Creates a dropdown of 15 years to control year
-			});
 			// /^(?=.*[A-ZÑ]{1}).*(?=.*[a-zñ]{1}).*(?=.*\W{1}).*(?=.*\d{1}).*[\S]{8,}$/
 			//declaracion de variables
 			{var nombre = $("#nomb");
@@ -53,27 +49,37 @@
 			var correo = $("#email");
 			var user = $("#usr");
 			var clave = $("#pass");
-			var reclave = $("#repass");}
+			var reclave = $("#repass");
+			var subm = $("#subm");}
 			//validacion por eventos
-			nombre.onfocusout(function() {
+			nombre.blur(function() {
 				if(nombre === undefined)
 					alert("Nombre inválido");
 			});
-			nac.onfocusout(function() {
+			nac.blur(function() {
 				if(nac === undefined)
 					alert("Fecha inválida");
 			});
-			correo.onfocusout(function() {
+			correo.blur(function() {
 				if(correo === undefined)
 					alert("Correo inválido");
 			});
-			user.onfocusout(function() {
+			user.blur(function() {
 				if(user === undefined)
 					alert("Nombre de usuario inválido");
 			});
-			reclave.onfocusout(function() {
-				if(clave.attr("value") !== reclave.attr("value"))
+			subm.submit(function() {
+				if (clave.length == 0 || reclave.length == 0) {
+					alert("Hay un campo vacío");
+					return false;
+				}
+				if (clave != reclave) {
 					alert("Contraseñas no coinciden");
+					return false;
+				}
+				else {
+					return true; 
+				}
 			});
 		</script>
 	</body>
