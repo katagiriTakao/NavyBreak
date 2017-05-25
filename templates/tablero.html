@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../styles/css/tablero.css"/>
+		<title>Tablero</title>
+	</head>
+
+		<body>
+		<table>	
+			<tr>
+				<td >a0</td>
+				<td >a1</td>
+				<td >a2</td>
+				<td >a3</td>
+				<td >a4</td>
+				<td >a5</td>
+				<td >a6</td>
+				<td >a7</td>
+				<td >a8</td>
+				<td >a9</td>
+			</tr>	
+<tr>
+				<td >b0</td>
+				<td >b1</td>
+				<td >b2</td>
+				<td >b3</td>
+				<td >b4</td>
+				<td >b5</td>
+				<td >b6</td>
+				<td >b7</td>
+				<td >b8</td>
+				<td >b9</td>
+			</tr>	
+			<tr>
+				<td >c0</td>
+				<td >c1</td>
+				<td >c2</td>
+				<td >c3</td>
+				<td >c4</td>
+				<td >c5</td>
+				<td >c6</td>
+				<td >c7</td>
+				<td >c8</td>
+				<td >c9</td>
+			</tr>	
+			<tr>
+				<td >d0</td>
+				<td >d1</td>
+				<td >d2</td>
+				<td >d3</td>
+				<td >d4</td>
+				<td >d5</td>
+				<td >d6</td>
+				<td >d7</td>
+				<td >d8</td>
+				<td >d9</td>
+			</tr>	
+			<tr>
+				<td >e0</td>
+				<td >e1</td>
+				<td >e2</td>
+				<td >e3</td>
+				<td >e4</td>
+				<td >e5</td>
+				<td >e6</td>
+				<td >e7</td>
+				<td >e8</td>
+				<td >e9</td>
+			</tr>	
+			<tr>
+				<td >f0</td>
+				<td >f1</td>
+				<td >f2</td>
+				<td >f3</td>
+				<td >f4</td>
+				<td >f5</td>
+				<td >f6</td>
+				<td >f7</td>
+				<td >f8</td>
+				<td >f9</td>
+			</tr>	
+			<tr>
+				<td >g0</td>
+				<td >g1</td>
+				<td >g2</td>
+				<td >g3</td>
+				<td >g4</td>
+				<td >g5</td>
+				<td >g6</td>
+				<td >g7</td>
+				<td >g8</td>
+				<td >g9</td>
+			</tr>
+			<tr>
+				<td >h0</td>
+				<td >h1</td>
+				<td >h2</td>
+				<td >h3</td>
+				<td >h4</td>
+				<td >h5</td>
+				<td >h6</td>
+				<td >h7</td>
+				<td >h8</td>
+				<td >h9</td>
+			</tr>
+			<tr>
+				<td >i0</td>
+				<td >i1</td>
+				<td >i2</td>
+				<td >i3</td>
+				<td >i4</td>
+				<td >i5</td>
+				<td >i6</td>
+				<td >i7</td>
+				<td >i8</td>
+				<td >i9</td>
+			</tr>
+			<tr>
+				<td >j0</td>
+				<td >j1</td>
+				<td >j2</td>
+				<td >j3</td>
+				<td >j4</td>
+				<td >j5</td>
+				<td >j6</td>
+				<td >j7</td>
+				<td >j8</td>
+				<td >j9</td>
+			</tr>	
+
+		</table>
+		<p></p>
+		<script>
+	
+			$(document).ready(function(){
+    			$("td").click(function(){
+       				var attack=$(this).html();
+       				//la casilla seleccionada para atacar sale en el output del $(this).html, el console log solo existe para hacer algo como un debug
+       				console.log(attack);
+
+       				$.ajax({
+       							type: "POST",
+       							url: "../programs/php/trancition.php",
+       							data: attack,
+       							success:function(attack){
+       								console.log("success");
+       							}
+
+
+
+       				});
+  				  });
+				});
+			$("td").hover($(this).attr("style='background-color:blue'"));
+			
+
+		</script>
+		</body>
+
+</html>

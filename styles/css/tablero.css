@@ -1,0 +1,18 @@
+table{
+	
+	background:radial-gradient(circle, white, LightBlue);
+
+}
+td{
+
+	padding: 10px;
+	border: double;
+	font-family: monospace;
+
+}
+td:hover{
+
+	background-color:blue;
+
+
+}
