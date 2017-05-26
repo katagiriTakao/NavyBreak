@@ -66,7 +66,7 @@ if(isset($_POST['mecaga']))
 	$mecaga=$_POST['mecaga'];
 	$verificar_mecaga=mysqli_query($conexion, "SELECT * FROM COMMENT WHERE id_postcomment='$idpost' AND mecaga='$mecaga';");
 	while(mysqli_num_rows($verificar_mecaga)>0)
-		$mecaga<++;
+		$mecaga++;
 	//Inserta publicaciones a Base de datos
 	$coma="INSERT INTO COMMENT(id_comment,id_postcoment,id_usercomment,comment_text,comment_time,likes,mecaga) VALUES ('$idcom','$idpost','$idus','$com','$comti','$likes','$mecaga')";
 	$sub=mysqli_query($conexion,$coma);
