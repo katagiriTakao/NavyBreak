@@ -33,7 +33,7 @@ else
 			echo '<script> 
 				alert("Acceso concedido");
 				</script>';
-		
+			header('location:../../templates/publicaciones.php');
 		}		
 		else
 			echo '<script> 
