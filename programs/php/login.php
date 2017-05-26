@@ -1,7 +1,7 @@
 <?php
- include(conexionMysql.php);
-$usu = "williy";
-$contra = "12345";
+ include("conexionMysql.php");
+$usu=$_POST['username'];
+$contra="S@7r0".$_POST['password']."p1M3^|RO";
 $datos = array();
 $valus = 0;
 $conexion=mysqli_connect('localhost','root','','NavyBreak');

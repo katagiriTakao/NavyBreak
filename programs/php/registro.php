@@ -1,5 +1,5 @@
 <?php
- include(conexionMysql.php);
+ include("conexionMysql.php");
 	$conexion=mysqli_connect("localhost","root","","NavyBreak");
 	$nom=$_POST['name'];
 	$nac=$_POST['b_day'];

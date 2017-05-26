@@ -1,5 +1,9 @@
 <?php
+<<<<<<< Updated upstream
  include(conexionMysql.php);
+=======
+ include("conexionMysql.php");
+>>>>>>> Stashed changes
 	session_start();
 echo " <!DOCTYPE html>
 	<html lang='es'>
