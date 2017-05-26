@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+ <html>
+ 	<head>
+ 		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+ 		<title>Navy Break</title>
+ 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 		<link type="text/css" rel="stylesheet" href="../styles/materialize/css/materialize.css"  media="screen,projection"/>
+ 		<script type="text/javascript" src="../programs/javascript/jquery-3.2.1.js"></script>
+ 		<link rel="stylesheet" type="text/css" href="../styles/css/ini-tablero.css"/>
+ 	</head>
+ 	<body>
+ 		<div class="row">
+ 			<div class="col s12 hide-on-med-and-up">
+ 				<br/><br/>
+ 				<input class="size" type="button" value="2" title="Barco pequeño"/>
+ 				<input class="size" type="button" value="3" title="Barco mediano"/>
+ 				<input class="size" type="button" value="3" title="Barco mediano"/>
+ 				<input class="size" type="button" value="4" title="Barco grande"/>
+ 				<input class="size" type="button" value="5" title="Barco x-grande"/>
+ 				<br/><br/>
+ 				<input class="ori" type="button" value="Horizontal →"/>
+ 				<input class="ori" type="button" value="Vertical ↓"/>
+ 				<br/><br/>
+ 				<img src="../resources/images/ship-2.png" width="75px"></img>
+ 				<img src="../resources/images/ship-3.png" width="75px"></img>
+ 			</div>
+ 			<div class="col m3 hide-on-small-only">
+ 				<br/><br/><br/><br/>
+ 				<input class="size" type="button" value="2" title="Barco pequeño"/><br/>
+ 				<input class="size" type="button" value="3" title="Barco mediano"/><br/>
+ 				<input class="size" type="button" value="3" title="Barco mediano"/><br/>
+ 				<input class="size" type="button" value="4" title="Barco grande"/><br/>
+ 				<input class="size" type="button" value="5" title="Barco x-grande"/><br/>
+ 				<br/><br/>
+ 				<input class="ori" type="button" value="Horizontal →"/>
+ 				<input class="ori" type="button" value="Vertical ↓"/>
+ 				<br/><br/>
+ 				<img src="../resources/images/ship-2.png" width="120px"></img>
+ 				<img src="../resources/images/ship-3.png" width="120px"></img>
+ 			</div>
+ 			<div class="col s12 m9">
+ 				<table>	
+ 					<tr>
+ 						<td ><input class="bot" type="button" value="a0"/></td>
+ 						<td ><input class="bot" type="button" value="a1"/></td>
+ 						<td ><input class="bot" type="button" value="a2"/></td>
+ 						<td ><input class="bot" type="button" value="a3"/></td>
+ 						<td ><input class="bot" type="button" value="a4"/></td>
+ 						<td ><input class="bot" type="button" value="a5"/></td>
+ 						<td ><input class="bot" type="button" value="a6"/></td>
+ 						<td ><input class="bot" type="button" value="a7"/></td>
+ 						<td ><input class="bot" type="button" value="a8"/></td>
+ 						<td ><input class="bot" type="button" value="a9"/></td>
+ 					</tr>	
+ 					<tr>
+ 						<td ><input class="bot" type="button" value="b0"/></td>
+ 						<td ><input class="bot" type="button" value="b1"/></td>
+ 						<td ><input class="bot" type="button" value="b2"/></td>
+ 						<td ><input class="bot" type="button" value="b3"/></td>
+ 						<td ><input class="bot" type="button" value="b4"/></td>
+ 						<td ><input class="bot" type="button" value="b5"/></td>
+ 						<td ><input class="bot" type="button" value="b6"/></td>
+ 						<td ><input class="bot" type="button" value="b7"/></td>
+ 						<td ><input class="bot" type="button" value="b8"/></td>
+ 						<td ><input class="bot" type="button" value="b9"/></td>
+ 					</tr>	
+ 					<tr>
+ 						<td ><input class="bot" type="button" value="c0"/></td>
+ 						<td ><input class="bot" type="button" value="c1"/></td>
+ 						<td ><input class="bot" type="button" value="c2"/></td>
+ 						<td ><input class="bot" type="button" value="c3"/></td>
+ 						<td ><input class="bot" type="button" value="c4"/></td>
+ 						<td ><input class="bot" type="button" value="c5"/></td>
+ 						<td ><input class="bot" type="button" value="c6"/></td>
+ 						<td ><input class="bot" type="button" value="c7"/></td>
+ 						<td ><input class="bot" type="button" value="c8"/></td>
+ 						<td ><input class="bot" type="button" value="c9"/></td>
+ 					</tr>	
+ 					<tr>
+ 						<td ><input class="bot" type="button" value="d0"/></td>
+ 						<td ><input class="bot" type="button" value="d1"/></td>
+ 						<td ><input class="bot" type="button" value="d2"/></td>
+ 						<td ><input class="bot" type="button" value="d3"/></td>
+ 						<td ><input class="bot" type="button" value="d4"/></td>
+ 						<td ><input class="bot" type="button" value="d5"/></td>
+ 						<td ><input class="bot" type="button" value="d6"/></td>
+ 						<td ><input class="bot" type="button" value="d7"/></td>
+ 						<td ><input class="bot" type="button" value="d8"/></td>
+ 						<td ><input class="bot" type="button" value="d9"/></td>
+ 					</tr>	
+ 					<tr>
+ 						<td ><input class="bot" type="button" value="e0"/></td>
+ 						<td ><input class="bot" type="button" value="e1"/></td>
+ 						<td ><input class="bot" type="button" value="e2"/></td>
+ 						<td ><input class="bot" type="button" value="e3"/></td>
+ 						<td ><input class="bot" type="button" value="e4"/></td>
+ 						<td ><input class="bot" type="button" value="e5"/></td>
+ 						<td ><input class="bot" type="button" value="e6"/></td>
+ 						<td ><input class="bot" type="button" value="e7"/></td>
+ 						<td ><input class="bot" type="button" value="e8"/></td>
+ 						<td ><input class="bot" type="button" value="e9"/></td>
+ 					</tr>	
+ 					<tr>
+ 						<td ><input class="bot" type="button" value="f0"/></td>
+ 						<td ><input class="bot" type="button" value="f1"/></td>
+ 						<td ><input class="bot" type="button" value="f2"/></td>
+ 						<td ><input class="bot" type="button" value="f3"/></td>
+ 						<td ><input class="bot" type="button" value="f4"/></td>
+ 						<td ><input class="bot" type="button" value="f5"/></td>
+ 						<td ><input class="bot" type="button" value="f6"/></td>
+ 						<td ><input class="bot" type="button" value="f7"/></td>
+ 						<td ><input class="bot" type="button" value="f8"/></td>
+ 						<td ><input class="bot" type="button" value="f9"/></td>
+ 					</tr>	
+ 					<tr>
+ 						<td ><input class="bot" type="button" value="g0"/></td>
+ 						<td ><input class="bot" type="button" value="g1"/></td>
+ 						<td ><input class="bot" type="button" value="g2"/></td>
+ 						<td ><input class="bot" type="button" value="g3"/></td>
+ 						<td ><input class="bot" type="button" value="g4"/></td>
+ 						<td ><input class="bot" type="button" value="g5"/></td>
+ 						<td ><input class="bot" type="button" value="g6"/></td>
+ 						<td ><input class="bot" type="button" value="g7"/></td>
+ 						<td ><input class="bot" type="button" value="g8"/></td>
+ 						<td ><input class="bot" type="button" value="g9"/></td>
+ 					</tr>
+ 					<tr>
+ 						<td ><input class="bot" type="button" value="h0"/></td>
+ 						<td ><input class="bot" type="button" value="h1"/></td>
+ 						<td ><input class="bot" type="button" value="h2"/></td>
+ 						<td ><input class="bot" type="button" value="h3"/></td>
+ 						<td ><input class="bot" type="button" value="h4"/></td>
+ 						<td ><input class="bot" type="button" value="h5"/></td>
+ 						<td ><input class="bot" type="button" value="h6"/></td>
+ 						<td ><input class="bot" type="button" value="h7"/></td>
+ 						<td ><input class="bot" type="button" value="h8"/></td>
+ 						<td ><input class="bot" type="button" value="h9"/></td>
+ 					</tr>
+ 					<tr>
+ 						<td ><input class="bot" type="button" value="i0"/></td>
+ 						<td ><input class="bot" type="button" value="i1"/></td>
+ 						<td ><input class="bot" type="button" value="i2"/></td>
+ 						<td ><input class="bot" type="button" value="i3"/></td>
+ 						<td ><input class="bot" type="button" value="i4"/></td>
+ 						<td ><input class="bot" type="button" value="i5"/></td>
+ 						<td ><input class="bot" type="button" value="i6"/></td>
+ 						<td ><input class="bot" type="button" value="i7"/></td>
+ 						<td ><input class="bot" type="button" value="i8"/></td>
+ 						<td ><input class="bot" type="button" value="i9"/></td>
+ 					</tr>
+ 					<tr>
+ 						<td ><input class="bot" type="button" value="j0"/></td>
+ 						<td ><input class="bot" type="button" value="j1"/></td>
+ 						<td ><input class="bot" type="button" value="j2"/></td>
+ 						<td ><input class="bot" type="button" value="j3"/></td>
+ 						<td ><input class="bot" type="button" value="j4"/></td>
+ 						<td ><input class="bot" type="button" value="j5"/></td>
+ 						<td ><input class="bot" type="button" value="j6"/></td>
+ 						<td ><input class="bot" type="button" value="j7"/></td>
+ 						<td ><input class="bot" type="button" value="j8"/></td>
+ 						<td ><input class="bot" type="button" value="j9"/></td>
+ 					</tr>	
+ 				</table>
+ 			</div>
+  		</div>
+  		<script>
+  			$(document).ready(function(){
+  				var n = $(".size").click(function(){
+ 					console.log($(this).val());
+					return $(this).val();
+  				});
+  				var d = $(".ori").click(function(){
+ 					console.log($(this).val());
+ 					return $(this).val();
+  				});
+  				$(".bot").click(function(){
+  					//if(d == "Horizontal →"){
+  						$(this).parent().css("background-color","SteelBlue");
+  						switch(n) {
+ 							case 2:
+								$(this).parent().next().css("background-color","SteelBlue");
+								reak;
+							case 3:
+								$(this).parent().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().css("background-color","SteelBlue");
+								break;
+							case 4:
+								$(this).parent().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().next().css("background-color","SteelBlue");
+								break;
+							case 5:
+								$(this).parent().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().next().next().css("background-color","SteelBlue");
+								break;
+  						}
+  						/*for(x=0;x<=4;x++){
+							$(this).parent().next().css("background-color","SteelBlue");
+							$(this) = $(this).parent().next().child();
+							console.log(x);
+						}*/
+					//}
+  				});
+  			});
+ 		</script>
+ 	</body>
+ </html>
