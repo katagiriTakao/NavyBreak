@@ -18,10 +18,12 @@ while($fila)
 foreach ($datos as $key => $exis) 
 	if ($usu == $exis['username'])
 		$valus = 1;
-if ($valus == 0)
+if ($valus == 0){
 	echo '<script> 
 				alert("El usuario no existe");
 				</script>';
+	//header('location:../../templates/login.html');
+}
 else
 	foreach ($datos as $key => $exis) 
 	if ($usu == $exis['username'])

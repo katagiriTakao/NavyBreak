@@ -10,11 +10,14 @@
 <body>
 <hgroup id="hTitle">
 
+
 	<h1>TOP NAVY BREAK PLAYERS</h1>
+
 		<h2>score is based on won games</h2>
  
 </hgroup>
  	<table>
+
  	</table>
  		
  		<img align="middle" src="../resources/images/bird.gif"/></body></br>
@@ -23,11 +26,13 @@
  	<script type="text/javascript">
 
  		var elemRank = $('<tr></tr>');
+
  		var nombre = $("<td class='name'></td>");
  		var score = $("<td class='score'></td>");
  		nombre.appendTo(elemRank);
  		score.appendTo(elemRank);
  		var cloni = [];
+
 		$.ajax({
 			url:"../programs/php/rank.php",
 			method:"POST",
@@ -42,6 +47,7 @@
 				}
 			}
 		});
+		
 
  	</script>
 </body>

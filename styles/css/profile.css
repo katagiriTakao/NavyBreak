@@ -1,0 +1,12 @@
+body {
+	
+	background: radial-gradient(circle, white, LightBlue);
+	font-family:monospace;
+	text-align: left;
+	}
+#proPic{
+
+	margin-top:10px;
+	height:10%;
+
+}

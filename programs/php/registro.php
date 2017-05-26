@@ -57,5 +57,4 @@
 		'<script> alert("Usuario registrado");</script>';
 	}
 	mysqli_close($conexion);
-
 ?>
