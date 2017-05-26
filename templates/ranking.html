@@ -4,6 +4,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="../styles/css/ranking.css">
+<script type="text/javascript" src="../programs/javascript/jquery-3.2.1.js"></script>
 <title>Page Title</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
  
 </hgroup>
  	<table>
- 		<tr>
+ 		<tr id="uno">
  			<td>1°</td>
  			<td>name</td>
  			<td>score</td>
@@ -43,9 +44,29 @@
  		<button onclick=regresar >pag prncipal</button>
 
  	<script type="text/javascript">
- 		
 
+ 		var elemRank = $('<tr></tr>');
+ 		var numero = $("<td class='numero'></td>");
+ 		var nombre = $("<td class='name'></td>");
+ 		var score = $("<td class='score'></td>");
+ 		var boton = $("<td><button onclick='funcion de retar'>challenge</button></td>");
+ 		numero.appendTo(elemRank);
+ 		nombre.appendTo(elemRank);
+ 		score.appendTo(elemRank);
+ 		boton.appendTo(elemRank);
+ 		var cloni=elemRank.clone();
+ 		var pelo=cloni.children($(".numero")).
+ 		var pelo=cloni.children($(".name")).attr("style","background-color:blue;");
 
+ 		cloni.appendTo($('table:eq(0)'));
+
+		$.ajax({
+			url:"../programs/php/rank.php",
+			method:"POST",
+			success: function(result){
+				console.log(result);
+			}
+		});
 
  	</script>
 </body>
