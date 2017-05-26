@@ -134,13 +134,19 @@
 		</table>
 		<p></p>
 		<script>
-	
+			//la variable used genera un array con todas las casillas usadas, talvez la useas para algo, si no hay que borrarla.
+			var used=[];
 			$(document).ready(function(){
     			$("td").click(function(){
        				var attack=$(this).html();
-       				//la casilla seleccionada para atacar sale en el output del $(this).html, el console log solo existe para hacer algo como un debug
+       				
+       				//la casilla seleccionada para atacar sale en el output del $(this).html, el console log solo existe para hacer algo como un debug, la variable que pasa al php llamado transition es la de attack
        				console.log(attack);
-
+       				//aqui se usa el used
+       				used.push(attack);
+       				console.log(used);
+       				$(this).unbind();
+       				$(this).css("background-color","red");
        				$.ajax({
        							type: "POST",
        							url: "../programs/php/trancition.php",
