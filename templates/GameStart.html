@@ -40,7 +40,7 @@
  			</div>
  			<div class="col s12 m9">
  				<table>	
- 					<tr>
+ 					<tr id="a">
  						<td ><input class="bot" type="button" value="a0"/></td>
  						<td ><input class="bot" type="button" value="a1"/></td>
  						<td ><input class="bot" type="button" value="a2"/></td>
@@ -52,7 +52,7 @@
  						<td ><input class="bot" type="button" value="a8"/></td>
  						<td ><input class="bot" type="button" value="a9"/></td>
  					</tr>	
- 					<tr>
+ 					<tr id="b">
  						<td ><input class="bot" type="button" value="b0"/></td>
  						<td ><input class="bot" type="button" value="b1"/></td>
  						<td ><input class="bot" type="button" value="b2"/></td>
@@ -64,7 +64,7 @@
  						<td ><input class="bot" type="button" value="b8"/></td>
  						<td ><input class="bot" type="button" value="b9"/></td>
  					</tr>	
- 					<tr>
+ 					<tr id="c">
  						<td ><input class="bot" type="button" value="c0"/></td>
  						<td ><input class="bot" type="button" value="c1"/></td>
  						<td ><input class="bot" type="button" value="c2"/></td>
@@ -76,7 +76,7 @@
  						<td ><input class="bot" type="button" value="c8"/></td>
  						<td ><input class="bot" type="button" value="c9"/></td>
  					</tr>	
- 					<tr>
+ 					<tr id="d">
  						<td ><input class="bot" type="button" value="d0"/></td>
  						<td ><input class="bot" type="button" value="d1"/></td>
  						<td ><input class="bot" type="button" value="d2"/></td>
@@ -88,7 +88,7 @@
  						<td ><input class="bot" type="button" value="d8"/></td>
  						<td ><input class="bot" type="button" value="d9"/></td>
  					</tr>	
- 					<tr>
+ 					<tr id="e">
  						<td ><input class="bot" type="button" value="e0"/></td>
  						<td ><input class="bot" type="button" value="e1"/></td>
  						<td ><input class="bot" type="button" value="e2"/></td>
@@ -100,7 +100,7 @@
  						<td ><input class="bot" type="button" value="e8"/></td>
  						<td ><input class="bot" type="button" value="e9"/></td>
  					</tr>	
- 					<tr>
+ 					<tr id="f">
  						<td ><input class="bot" type="button" value="f0"/></td>
  						<td ><input class="bot" type="button" value="f1"/></td>
  						<td ><input class="bot" type="button" value="f2"/></td>
@@ -112,7 +112,7 @@
  						<td ><input class="bot" type="button" value="f8"/></td>
  						<td ><input class="bot" type="button" value="f9"/></td>
  					</tr>	
- 					<tr>
+ 					<tr id="g">
  						<td ><input class="bot" type="button" value="g0"/></td>
  						<td ><input class="bot" type="button" value="g1"/></td>
  						<td ><input class="bot" type="button" value="g2"/></td>
@@ -124,7 +124,7 @@
  						<td ><input class="bot" type="button" value="g8"/></td>
  						<td ><input class="bot" type="button" value="g9"/></td>
  					</tr>
- 					<tr>
+ 					<tr id="h">
  						<td ><input class="bot" type="button" value="h0"/></td>
  						<td ><input class="bot" type="button" value="h1"/></td>
  						<td ><input class="bot" type="button" value="h2"/></td>
@@ -136,7 +136,7 @@
  						<td ><input class="bot" type="button" value="h8"/></td>
  						<td ><input class="bot" type="button" value="h9"/></td>
  					</tr>
- 					<tr>
+ 					<tr id="i">
  						<td ><input class="bot" type="button" value="i0"/></td>
  						<td ><input class="bot" type="button" value="i1"/></td>
  						<td ><input class="bot" type="button" value="i2"/></td>
@@ -148,7 +148,7 @@
  						<td ><input class="bot" type="button" value="i8"/></td>
  						<td ><input class="bot" type="button" value="i9"/></td>
  					</tr>
- 					<tr>
+ 					<tr id="j">
  						<td ><input class="bot" type="button" value="j0"/></td>
  						<td ><input class="bot" type="button" value="j1"/></td>
  						<td ><input class="bot" type="button" value="j2"/></td>
@@ -164,6 +164,17 @@
  			</div>
   		</div>
   		<script>
+  		var quanti = 17;
+  		$(".size").click(function()
+  		{
+  			$(this).fadeOut("slow");
+
+  			var saiz= $(this).val();
+  			console.log(saiz)
+  		});
+
+  			var arrpl = [];
+
   			$(document).ready(function(){
   				var n = $(".size").click(function(){
  					console.log($(this).val());
@@ -196,6 +207,10 @@
 								$(this).parent().next().next().next().next().css("background-color","SteelBlue");
 								break;
   						}
+  						var place = $(this).val();
+  						console.log(place);
+  						arrpl.push(place);
+  						console.log(arrpl);
   						/*for(x=0;x<=4;x++){
 							$(this).parent().next().css("background-color","SteelBlue");
 							$(this) = $(this).parent().next().child();
@@ -204,6 +219,18 @@
 					//}
   				});
   			});
+
+
+  			$.ajax({
+       							type: "POST",
+       							url: "../programs/php/trancition.php",
+       							data: attack,
+       							success:function(attack){
+       								console.log("success");
+       							}
+       				});
+  				  });
+				});
  		</script>
  	</body>
  </html>
