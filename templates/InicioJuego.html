@@ -151,7 +151,7 @@
 		</div>
 		<script>
 			$(document).ready(function(){
-				$("#i2").mouseover(function(){
+				/*$("#i2").mouseover(function(){
 					$("h3").innerHTML = "Barco pequeño seleccionado";
 				});
 				$("#i3").mouseover(function(){
@@ -162,6 +162,9 @@
 				});
 				$("#i5").mouseover(function(){
 					$("h3").innerHTML = "Barco extragrande seleccionado";
+				});*/
+				$(":button").click(function(){
+					$(this).parent().css("background-color","SteelBlue");
 				});
 			});
 		</script>
