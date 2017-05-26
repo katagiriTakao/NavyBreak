@@ -12,21 +12,22 @@
 		<div class="row">
 			<div class="col s12 hide-on-med-and-up">
 				<br/><br/>
-				<input class="size" type="button" value="2" title="Barco pequeño"/>
+				<!--input class="size" type="button" value="2" title="Barco pequeño"/>
 				<input class="size" type="button" value="3" title="Barco mediano"/>
 				<input class="size" type="button" value="3" title="Barco mediano"/>
 				<input class="size" type="button" value="4" title="Barco grande"/>
-				<input class="size" type="button" value="5" title="Barco x-grande"/>
+				<input class="size" type="button" value="5" title="Barco x-grande"/-->
 				<br/><br/>
-				<input class="ori" type="button" value="Horizontal →"/>
+				<!--input class="ori" type="button" value="Horizontal →"/>
 				<input class="ori" type="button" value="Vertical ↓"/>
 				<br/><br/>
+				<input class="start" type="button" value="Nuevo barco"/-->
 				<img src="../resources/images/ship-2.png" width="75px"></img>
 				<img src="../resources/images/ship-3.png" width="75px"></img>
 			</div>
 			<div class="col m3 hide-on-small-only">
 				<br/><br/><br/><br/>
-				<input class="size" type="button" value="2" title="Barco pequeño"/><br/>
+				<!--input class="size" type="button" value="2" title="Barco pequeño"/><br/>
 				<input class="size" type="button" value="3" title="Barco mediano"/><br/>
 				<input class="size" type="button" value="3" title="Barco mediano"/><br/>
 				<input class="size" type="button" value="4" title="Barco grande"/><br/>
@@ -35,6 +36,7 @@
 				<input class="ori" type="button" value="Horizontal →"/>
 				<input class="ori" type="button" value="Vertical ↓"/>
 				<br/><br/>
+				<input class="start" type="button" value="Nuevo barco"/-->
 				<img src="../resources/images/ship-2.png" width="120px"></img>
 				<img src="../resources/images/ship-3.png" width="120px"></img>
 			</div>
@@ -164,19 +166,21 @@
 			</div>
 		</div>
 		<script>
-			$(document).ready(function(){
-				var n = $(".size").click(function(){
+			/*var n = $(".size").click(function(){
 					console.log($(this).val());
 					return $(this).val();
 				});
 				var d = $(".ori").click(function(){
 					console.log($(this).val());
 					return $(this).val();
-				});
+				});*/
+			$(document).ready(function(){
 				$(".bot").click(function(){
-					//if(d == "Horizontal →"){
-						$(this).parent().css("background-color","SteelBlue");
-						switch(n) {
+					var num = prompt("¿Qué tan grande es tu barco?","2,3,3,4,5");
+					var direc = prompt("¿Qué dirección tendrá tu nave?","¿(H)orizontal o (V)ertical?");
+					$(this).parent().css("background-color","SteelBlue");
+					if(direc == "H"){
+						switch(num) {
 							case 2:
 								$(this).parent().next().css("background-color","SteelBlue");
 								break;
@@ -196,15 +200,13 @@
 								$(this).parent().next().next().next().next().css("background-color","SteelBlue");
 								break;
 						}
-						/*for(x=0;x<=4;x++){
-							$(this).parent().next().css("background-color","SteelBlue");
-							$(this) = $(this).parent().next().child();
-							console.log(x);
-						}*/
-					//}
-					
+					}
 				});
 			});
+			/*for(x=0;x<=4;x++){
+							$(this).parent().next().css("background-color","SteelBlue");
+							$(this) = $(this).parent().next().child();
+							console.log(x);*/
 		</script>
 	</body>
 </html>
