@@ -1,6 +1,6 @@
 <?php
-
-	$connect=mysqli_connect("localhost","root","","NavyBreak");
+ include(conexionMysql.php);
+	$conexion=mysqli_connect("localhost","root","","NavyBreak");
 	$nom=$_POST['name'];
 	$nac=$_POST['b_day'];
 	$correo=$_POST['email'];
@@ -25,7 +25,7 @@
 	//Cocinamos
 	$contra="S@7r0".$contra."p1M3^|RO";
 	//Esta parte es para que cheque si ya hay un usuario con el mismo nombre y entonces no lo vuelvaa registrar
-	$verificar_usuario=mysqli_query($connect, "SELECT * FROM USER WHERE username='$usu'");
+	$verificar_usuario=mysqli_query($conexion, "SELECT * FROM USER WHERE username='$usu'");
 	if(mysqli_num_rows($verificar_usuario)>0)
 	{
 		echo '<script> 
@@ -34,7 +34,7 @@
 		exit;
 	}	
 	//Ejecutar consulta
-	$res=mysqli_query($connect,$insertar);
+	$res=mysqli_query($conexion,$insertar);
 	
 	if(!$res)
 	{
@@ -45,6 +45,6 @@
 		echo 
 		'<script> alert("Usuario registrado");</script>';
 	}
-	mysqli_close($connect);
+	mysqli_close($conexion);
 
 ?>

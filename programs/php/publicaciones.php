@@ -1,4 +1,5 @@
 <?php
+ include(conexionMysql.php);
 	session_start();
 echo " <!DOCTYPE html>
 	<html lang='es'>
@@ -7,11 +8,11 @@ echo " <!DOCTYPE html>
 		<title>Publicaciones</title>
 	</head>
 	<body>";
-$conn=mysqli_connect('localhost','root','','NavyBreak');
+$conexion=mysqli_connect('localhost','root','','NavyBreak');
 echo "<table>";
 //Mando a llamar las publicaciones relacionandolas con el el nombre del usuario pero si agregamos ID al usuario habra que cambiar Usuario por Id_Usuario
 	$query="select * from POST join USER on POST.id_user=USER.id_user order by post_time DESC;";
-	$res=mysqli_query($conn,$query);
+	$res=mysqli_query($conexion,$query);
 	$fila=mysqli_fetch_assoc($res);
 while($fila)
 {

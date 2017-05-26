@@ -1,11 +1,12 @@
 <?php
-$usu = $_POST['username'];
-$contra = $_POST['password'];
+ include(conexionMysql.php);
+$usu = "williy";
+$contra = "12345";
 $datos = array();
 $valus = 0;
-$conn=mysqli_connect('localhost','root','','NavyBreak');
+$conexion=mysqli_connect('localhost','root','','NavyBreak');
 	$query="select username,password from USER;";
-	$res=mysqli_query($conn,$query);
+	$res=mysqli_query($conexion,$query);
 	$fila=mysqli_fetch_assoc($res);
 	$concat="";
 //Se guardan los datos en una matriz
