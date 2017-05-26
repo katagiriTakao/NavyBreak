@@ -2,6 +2,7 @@
  include("conexionMysql.php");
 $usu=$_POST['username'];
 $contra=$_POST['password'];
+$contra=hash("adler32",$contra);
 $datos = array();
 $valus = 0;
 $conexion=mysqli_connect('localhost','root','','NavyBreak');

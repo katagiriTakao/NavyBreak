@@ -16,6 +16,8 @@
 		$id_us++;	
 		$verificar_id_usuario=mysqli_query($conexion, "SELECT * FROM USER WHERE id_user='$id_us'");
 	}
+	//Cocinamos
+	$contra=hash( "adler32" , $contra);
 	//Insertar a la base
 	$insertar="INSERT INTO USER(id_user,username,password,rname,b_day,email,wgames) VALUES ('$id_us','$usu','$contra','$nom','$nac','$correo','$games')";
 	//Validacion de datos
@@ -33,8 +35,6 @@
 			}
 		}
 	}
-	//Cocinamos
-	$contra="S@7r0".$contra."p1M3^|RO";
 	//Esta parte es para que cheque si ya hay un usuario con el mismo nombre y entonces no lo vuelvaa registrar
 	$verificar_usuario=mysqli_query($conexion, "SELECT * FROM USER WHERE username='$usu'");
 	if(mysqli_num_rows($verificar_usuario)>0)
