@@ -9,6 +9,7 @@
  		<link rel="stylesheet" type="text/css" href="../styles/css/ini-tablero.css"/>
  	</head>
  	<body>
+	<form method="post"  name="test"  action="../programs/php/lugaresBar.php">
  		<div class="row">
  			<div class="col s12 hide-on-med-and-up">
  				<br/><br/>
@@ -163,6 +164,12 @@
  				</table>
  			</div>
   		</div>
+		<input name="encapsulado" type="hidden">
+		<input type="submit" >
+		
+			
+		</form>
+			
   		<script>
   		var quanti = 17;
   		$(".size").click(function()
@@ -219,18 +226,14 @@
 					//}
   				});
   			});
+			
+			var encapsulado=JSON.stringify(arrpl);
 
 
-  			$.ajax({
-       							type: "POST",
-       							url: "../programs/php/trancition.php",
-       							data: attack,
-       							success:function(attack){
-       								console.log("success");
-       							}
-       				});
-  				  });
-				});
+
+  			
+  				  
+				
  		</script>
  	</body>
  </html>
