@@ -1,5 +1,5 @@
 
-
+//este script lo tienes que agregar a la seccion de publicaciones, y se tiene qu ecrear un botton de reto con el id  'chall'
 		<script>
 
 		$("#chall").click(function(){
