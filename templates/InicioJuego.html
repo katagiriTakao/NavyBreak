@@ -165,23 +165,43 @@
 		</div>
 		<script>
 			$(document).ready(function(){
-				$(".size").click(function(){
-					var n = $(this).val();
-					console.log(n);
-					return n;
+				var n = $(".size").click(function(){
+					console.log($(this).val());
+					return $(this).val();
 				});
-				$(".ori").click(function(){
-					var d = $(this).val();
-					console.log(d);
-					return d;
+				var d = $(".ori").click(function(){
+					console.log($(this).val());
+					return $(this).val();
 				});
 				$(".bot").click(function(){
-					if(d == "Horizontal →"){
+					//if(d == "Horizontal →"){
 						$(this).parent().css("background-color","SteelBlue");
-						for(x=1;x<n;x++){
-							$(this).next().css("background-color","SteelBlue");
+						switch(n) {
+							case 2:
+								$(this).parent().next().css("background-color","SteelBlue");
+								break;
+							case 3:
+								$(this).parent().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().css("background-color","SteelBlue");
+								break;
+							case 4:
+								$(this).parent().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().next().css("background-color","SteelBlue");
+								break;
+							case 5:
+								$(this).parent().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().next().next().css("background-color","SteelBlue");
+								break;
 						}
-					}
+						/*for(x=0;x<=4;x++){
+							$(this).parent().next().css("background-color","SteelBlue");
+							$(this) = $(this).parent().next().child();
+							console.log(x);
+						}*/
+					//}
 					
 				});
 			});
