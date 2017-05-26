@@ -18,13 +18,16 @@
 	//Validacion de datos
 	foreach ($valida as $Jo => $sec) 
 	{	
-		$sec[1]=preg_match($sec, $_POST[$Jo]);
-		if ($sec[1]!=1) 
+		if(!$_POST['Clave1'])
 		{
-			echo '<script> 
-				alert('.$Jo.' inválido);
-				</script>';
-			exit;
+			$sec[1]=preg_match($sec, $_POST[$Jo]);
+			if ($sec[1]!=1) 
+			{
+				echo '<script> 
+					alert('.$Jo.' inválido);
+					</script>';
+				exit;
+			}
 		}
 	}
 	//Cocinamos
