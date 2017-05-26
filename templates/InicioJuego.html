@@ -11,16 +11,18 @@
 	<body>
 		<div class="row">
 			<div class="col s6 hide-on-med-and-up">
-				<form method="POST" action="#">
+				<form method="GET" action="#">
 					<br/><br/>
-					<input class="with-gap" name="size" type="radio" id="2" /><label for="ship1">Small boat</label><br/>
-					<input class="with-gap" name="size" type="radio" id="3" /><label for="ship2">Medium boat 1</label><br/>
-					<input class="with-gap" name="size" type="radio" id="3" /><label for="ship3">Medium boat 2</label><br/>
-					<input class="with-gap" name="size" type="radio" id="4" /><label for="ship4">Large boat</label><br/>
-					<input class="with-gap" name="size" type="radio" id="5" /><label for="ship5">X-large boat</label>
+					<input class="with-gap" name="size" type="radio" value="2" id="1" /><label for="1">Small boat</label><br/>
+					<input class="with-gap" name="size" type="radio" value="3" id="2" /><label for="2">Medium boat 1</label><br/>
+					<input class="with-gap" name="size" type="radio" value="3" id="3" /><label for="3">Medium boat 2</label><br/>
+					<input class="with-gap" name="size" type="radio" value="4" id="4" /><label for="4">Large boat</label><br/>
+					<input class="with-gap" name="size" type="radio" value="5" id="5" /><label for="5">X-large boat</label>
 					<br/><br/>
-					<input class="with-gap" name="ori" type="radio" id="Horizontal" /><label for="hor">Horizontal →</label><br/>
-					<input class="with-gap" name="ori" type="radio" id="Vertical" /><label for="ver">Vertical ↓</label>
+					<input class="with-gap" name="ori" type="radio" value="H" id="Horizontal" /><label for="Horizontal">Horizontal →</label><br/>
+					<input class="with-gap" name="ori" type="radio" value="V" id="Vertical" /><label for="Vertical">Vertical ↓</label>
+					<br/>
+					<input type="submit"/>
 				</form>	
 				<br/>
 			</div>
@@ -29,16 +31,18 @@
 				<img src="../resources/images/ship-3.png" width="75px"></img>
 			</div>
 			<div class="col m3 hide-on-small-only">
-				<form method="POST" href="#">
+				<form method="GET" href="#">
 					<br/><br/>
-					<input class="with-gap" name="size" type="radio" id="2" /><label for="ship1">Small boat</label><br/>
-					<input class="with-gap" name="size" type="radio" id="3" /><label for="ship2">Medium boat 1</label><br/>
-					<input class="with-gap" name="size" type="radio" id="3" /><label for="ship3">Medium boat 2</label><br/>
-					<input class="with-gap" name="size" type="radio" id="4" /><label for="ship4">Large boat</label><br/>
-					<input class="with-gap" name="size" type="radio" id="5" /><label for="ship5">X-large boat</label>
+					<input class="with-gap" name="size" type="radio" value="2" id="1" /><label for="1">Small boat</label><br/>
+					<input class="with-gap" name="size" type="radio" value="3" id="2" /><label for="2">Medium boat 1</label><br/>
+					<input class="with-gap" name="size" type="radio" value="3" id="3" /><label for="3">Medium boat 2</label><br/>
+					<input class="with-gap" name="size" type="radio" value="4" id="4" /><label for="4">Large boat</label><br/>
+					<input class="with-gap" name="size" type="radio" value="5" id="5" /><label for="5">X-large boat</label>
 					<br/><br/>
-					<input class="with-gap" name="ori" type="radio" id="Horizontal" /><label for="hor">Horizontal →</label><br/>
-					<input class="with-gap" name="ori" type="radio" id="Vertical" /><label for="ver">Vertical ↓</label>
+					<input class="with-gap" name="ori" type="radio" value="H" id="Horizontal" /><label for="Horizontal">Horizontal →</label><br/>
+					<input class="with-gap" name="ori" type="radio" value="V" id="Vertical" /><label for="Vertical">Vertical ↓</label>
+					<br/>
+					<input type="submit"/>
 				</form>
 				<br/>
 				<img src="../resources/images/ship-2.png" width="120px"></img>
@@ -169,7 +173,7 @@
 				</table>
 			</div>
 		</div>
-		<!--script>
+		<script>
 			$(document).ready(function(){
 				var n;
 				var d;
@@ -209,7 +213,7 @@
 						}
 					}
 				});
-				/*$(".bot").click(function(){
+				$(".bot").click(function(){
 					var num = prompt("How big is your boat?","2,3,3,4,5");
 					var direc = prompt("What direction will your ship have?","(H)orizontal or (V)ertical?");
 					console.log(num+direc);
@@ -239,34 +243,8 @@
 								break;
 						}
 					}
-					else if(direc == "V"){
-						switch(num) {
-							case 2:
-								$(this).parent().css("background-color","SteelBlue");
-								$(this).parent().parent().next().find("").css("background-color","SteelBlue");
-								break;
-							case 3:
-								$(this).parent().css("background-color","SteelBlue");
-								$(this).parent().next().css("background-color","SteelBlue");
-								$(this).parent().next().next().css("background-color","SteelBlue");
-								break;
-							case 4:
-								$(this).parent().css("background-color","SteelBlue");
-								$(this).parent().next().css("background-color","SteelBlue");
-								$(this).parent().next().next().css("background-color","SteelBlue");
-								$(this).parent().next().next().next().css("background-color","SteelBlue");
-								break;
-							case 5:
-								$(this).parent().css("background-color","SteelBlue");
-								$(this).parent().next().css("background-color","SteelBlue");
-								$(this).parent().next().next().css("background-color","SteelBlue");
-								$(this).parent().next().next().next().css("background-color","SteelBlue");
-								$(this).parent().next().next().next().next().css("background-color","SteelBlue");
-								break;
-						}
-					}
-				});*/
+				});
 			});
-		</script-->
+		</script>
 	</body>
 </html>
