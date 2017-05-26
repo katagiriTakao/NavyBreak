@@ -6,37 +6,17 @@
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="../styles/materialize/css/materialize.css"  media="screen,projection"/>
 		<script type="text/javascript" src="../programs/javascript/jquery-3.2.1.js"></script>
-		<link rel="stylesheet" type="text/css" href="../styles/css/tablero.css"/>
+		<link rel="stylesheet" type="text/css" href="../styles/css/ini-tablero.css"/>
 	</head>
 	<body>
 		<div class="row">
 			<div class="col s12 hide-on-med-and-up">
-				<br/><br/>
-				<!--input class="size" type="button" value="2" title="Barco pequeño"/>
-				<input class="size" type="button" value="3" title="Barco mediano"/>
-				<input class="size" type="button" value="3" title="Barco mediano"/>
-				<input class="size" type="button" value="4" title="Barco grande"/>
-				<input class="size" type="button" value="5" title="Barco x-grande"/-->
-				<br/><br/>
-				<!--input class="ori" type="button" value="Horizontal →"/>
-				<input class="ori" type="button" value="Vertical ↓"/>
-				<br/><br/>
-				<input class="start" type="button" value="Nuevo barco"/-->
+				<br/><br/><br/><br/>
 				<img src="../resources/images/ship-2.png" width="75px"></img>
 				<img src="../resources/images/ship-3.png" width="75px"></img>
 			</div>
 			<div class="col m3 hide-on-small-only">
 				<br/><br/><br/><br/>
-				<!--input class="size" type="button" value="2" title="Barco pequeño"/><br/>
-				<input class="size" type="button" value="3" title="Barco mediano"/><br/>
-				<input class="size" type="button" value="3" title="Barco mediano"/><br/>
-				<input class="size" type="button" value="4" title="Barco grande"/><br/>
-				<input class="size" type="button" value="5" title="Barco x-grande"/><br/>
-				<br/><br/>
-				<input class="ori" type="button" value="Horizontal →"/>
-				<input class="ori" type="button" value="Vertical ↓"/>
-				<br/><br/>
-				<input class="start" type="button" value="Nuevo barco"/-->
 				<img src="../resources/images/ship-2.png" width="120px"></img>
 				<img src="../resources/images/ship-3.png" width="120px"></img>
 			</div>
@@ -166,34 +146,56 @@
 			</div>
 		</div>
 		<script>
-			/*var n = $(".size").click(function(){
-					console.log($(this).val());
-					return $(this).val();
-				});
-				var d = $(".ori").click(function(){
-					console.log($(this).val());
-					return $(this).val();
-				});*/
 			$(document).ready(function(){
 				$(".bot").click(function(){
-					var num = prompt("¿Qué tan grande es tu barco?","2,3,3,4,5");
-					var direc = prompt("¿Qué dirección tendrá tu nave?","¿(H)orizontal o (V)ertical?");
-					$(this).parent().css("background-color","SteelBlue");
+					var num = prompt("How big is your boat?","2,3,3,4,5");
+					var direc = prompt("What direction will your ship have?","(H)orizontal or (V)ertical?");
+					console.log(num+direc);
 					if(direc == "H"){
 						switch(num) {
 							case 2:
+								$(this).parent().css("background-color","SteelBlue");
 								$(this).parent().next().css("background-color","SteelBlue");
 								break;
 							case 3:
+								$(this).parent().css("background-color","SteelBlue");
 								$(this).parent().next().css("background-color","SteelBlue");
 								$(this).parent().next().next().css("background-color","SteelBlue");
 								break;
 							case 4:
+								$(this).parent().css("background-color","SteelBlue");
 								$(this).parent().next().css("background-color","SteelBlue");
 								$(this).parent().next().next().css("background-color","SteelBlue");
 								$(this).parent().next().next().next().css("background-color","SteelBlue");
 								break;
 							case 5:
+								$(this).parent().css("background-color","SteelBlue");
+								$(this).parent().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().next().next().css("background-color","SteelBlue");
+								break;
+						}
+					}
+					else if(direc == "V"){
+						switch(num) {
+							case 2:
+								$(this).parent().css("background-color","SteelBlue");
+								$(this).parent().parent().next().css("background-color","SteelBlue");
+								break;
+							case 3:
+								$(this).parent().css("background-color","SteelBlue");
+								$(this).parent().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().css("background-color","SteelBlue");
+								break;
+							case 4:
+								$(this).parent().css("background-color","SteelBlue");
+								$(this).parent().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().css("background-color","SteelBlue");
+								$(this).parent().next().next().next().css("background-color","SteelBlue");
+								break;
+							case 5:
+								$(this).parent().css("background-color","SteelBlue");
 								$(this).parent().next().css("background-color","SteelBlue");
 								$(this).parent().next().next().css("background-color","SteelBlue");
 								$(this).parent().next().next().next().css("background-color","SteelBlue");
@@ -203,10 +205,6 @@
 					}
 				});
 			});
-			/*for(x=0;x<=4;x++){
-							$(this).parent().next().css("background-color","SteelBlue");
-							$(this) = $(this).parent().next().child();
-							console.log(x);*/
 		</script>
 	</body>
 </html>
