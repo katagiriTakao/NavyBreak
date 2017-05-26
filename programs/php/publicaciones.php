@@ -10,7 +10,8 @@ echo " <!DOCTYPE html>
 	<body>";
 $conexion=mysqli_connect('localhost','root','','NavyBreak');
 //OJO: PARA SUBIR PUBLICAIONES Y COMENTARIOS, ALGUNOS DATOS SE TENDRAN QUE ENVIAR QUE ENVIAR POR METODO POST CON UN CIERTO NOMBRE, INCLUSO ALGUNOS DEBERAN SER HIDDEN, SI LO CREEN NECESARIO.
-if(isset($POST['comment']))
+
+if(isset($_POST['comment']))
 {
 	$idcom=0;
 	$idpost=$_POST['post'];
@@ -26,7 +27,9 @@ if(isset($POST['comment']))
 	$coma="INSERT INTO COMMENT(id_comment,id_postcoment,id_usercomment,comment_text,comment_time,likes,mecaga) VALUES ('$idcom','$idpost','$idus','$com','$comti','$likes','$mecaga')";
 	$sub=mysqli_query($conexion,$coma);
 }
-if (isset($POST['public']))
+
+if (isset($_POST['public']))
+
 {
 	$idpos=0;
 	$idus=$_POST['user'];
@@ -39,9 +42,47 @@ if (isset($POST['public']))
 	$publ="INSERT INTO POST(id_post,id_userpost,post_text,post_time) VALUES ('$idpos','$idus','$pub','$pubti')";
 	$sub1=mysqli_query($conexion,$publ);
 }
+
+if(isset($_POST['likes']))
+{
+	$idcom=$_POST['idcom'];
+	$idpost=$_POST['post'];
+	$idus=$_POST['user'];
+	$com=$_POST['comme'];
+	$comti=date();
+	$likes=$_POST['likes'];
+	$mecaga=$_POST['mecaga'];
+	$verificar_likes=mysqli_query($conexion, "SELECT * FROM COMMENT WHERE id_postcomment='$idpost' AND likes='$likes';");
+	while(mysqli_num_rows($verificar_likes)>0)
+		$likes++;
+	//Inserta publicaciones a Base de datos
+	$coma="INSERT INTO COMMENT(id_comment,id_postcoment,id_usercomment,comment_text,comment_time,likes,mecaga) VALUES ('$idcom','$idpost','$idus','$com','$comti','$likes','$mecaga')";
+	$sub=mysqli_query($conexion,$coma);
+}
+if(isset($_POST['mecaga']))
+{
+	$idcom=$_POST['idcom'];
+	$idpost=$_POST['post'];
+	$idus=$_POST['user'];
+	$com=$_POST['comme'];
+	$comti=date();
+	$likes=$_POST['likes'];
+	$mecaga=$_POST['mecaga'];
+	$verificar_mecaga=mysqli_query($conexion, "SELECT * FROM COMMENT WHERE id_postcomment='$idpost' AND mecaga='$mecaga';");
+	while(mysqli_num_rows($verificar_mecaga)>0)
+		$mecaga++;
+	//Inserta publicaciones a Base de datos
+	$coma="INSERT INTO COMMENT(id_comment,id_postcoment,id_usercomment,comment_text,comment_time,likes,mecaga) VALUES ('$idcom','$idpost','$idus','$com','$comti','$likes','$mecaga')";
+	$sub=mysqli_query($conexion,$coma);
+}
+echo "<table>";
+//Este query obtiene las publicaciones con username, el texto y el tiempo en que se realizo
+	$querypub="select id_post,username,post_text,post_time from POST join USER on POST.id_userpost=USER.id_user order by post_time DESC;";
+=======
 echo "<table>";
 //Este query obtiene las publicaciones con username, el texto y el tiempo en que se realizo
 	$querypub="select username,post_text,post_time from POST join USER on POST.id_userpost=USER.id_user order by post_time DESC;";
+
 	$res=mysqli_query($conexion,$querypub);
 	$fila=mysqli_fetch_assoc($res);
 //Este otro query obtiene los comentarios; username, texto, tiempo, likes y mecaga que componen al comentario. EL WHERE SE ENCARGA DE ASEGURARSE DE QUE LOS COMENTARIOS SEAN DE LA PUBLICACION Y EVITAR QUE TODOS LOS COMENTARIOS DE TODAS LAS PUBLICACIONES ESTEN EN UNA PUBLICACION
@@ -50,6 +91,9 @@ echo "<table>";
 	$comm=mysqli_fetch_assoc($resc);
 while($fila)
 {
+
+	echo $fila['id_post'];
+
 	echo $fila['username'];
 	echo "<br/>";
 	echo $fila['post_time'];

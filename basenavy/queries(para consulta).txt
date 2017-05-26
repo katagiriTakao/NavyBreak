@@ -3,7 +3,8 @@ Existen 3 ramas principales de busqueda, la mayoria es por id_user, estas son:
 	La busqueda de publicaciones y sus comentarios (Que permite el uso de la red social).
 	La busqueda de juegos actual(current game) (Que permite el funcionamiento del juego).
 	La busqueda de notificaciones (Que administra los duelos y las notifcaciones al admin). 
-
+//Busqueda de username y password para login
+	select username,password from USER;
 //Busqueda de datos propios completos del usuario
 	 select * from user 
 	 where username="<<nombre de usuario>>";
