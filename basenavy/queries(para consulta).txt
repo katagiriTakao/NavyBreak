@@ -1,0 +1,60 @@
+
+Existen 3 ramas principales de busqueda, la mayoria es por id_user, estas son:
+	La busqueda de publicaciones y sus comentarios (Que permite el uso de la red social).
+	La busqueda de juegos actual(current game) (Que permite el funcionamiento del juego).
+	La busqueda de notificaciones (Que administra los duelos y las notifcaciones al admin). 
+//Busqueda de username y password para login
+	select username,password from USER;
+//Busqueda de datos propios completos del usuario
+	 select * from user 
+	 where username="<<nombre de usuario>>";
+
+//Busqueda de post
+	select * from user join post on user.id_user=post.id_userpost 
+	where username="<<nombre de usuario>>";
+
+//Busqueda de comentarios
+	select * from user join post on user.id_user=post.id_userpost
+	join comment on post.id_post=comment.id_postcomment 
+	where username="<<nombre de usuario>>";
+
+//Seleccion por usuarios en curent game (cgame)
+	select * from user join cgame on user.id_user=cgame.id_userone;
+
+	select * from user join cgame on user.id_user=cgame.id_usertwo;
+
+	select * from user join cgame where id_user=<<numero de usuario>>;
+
+//Conocer reportes de los usuarios
+	select * from notifications join reports on notifications.id_report=reports.id_report;
+
+	select * from notifications join reports on notifications.id_report=reports.id_report 
+	where id_usernotif=<<numero de usuario>>;
+
+	select * from user join notifications on user.id_user=notifications.id_usernotif 
+	join reports on notifications.id_report=reports.id_report 
+	where username="<<nombre de usuario>>";
+
+//Conocer duelos de los usuarios
+	select * from user join notifications on user.id_user=notifications.id_usernotif 
+	join duels on notifications.id_duels=duels.id_duels;
+
+	select * from user join notifications on user.id_user=notifications.id_usernotif 
+	join duels on notifications.id_duels=duels.id_duels where username="<<nombre de usuario>>";
+
+	select * from user join notifications on user.id_user=notifications.id_usernotif 
+	join duels on notifications.id_duels=duels.id_duels where id_user=<<numero de usuario   >>;
+
+
+//Notificaciones en general del jugador (duelos y reportes)
+	  select * from user join notifications on user.id_user=notifications.id_usernotif
+      join reports on notifications.id_report=reports.id_report
+      join duels on notifications.id_duels=duels.id_duels where username="willy";
+
+
+//Coordenadas de prueba
+	A1,B2,B4,B5,C2,J4,D8,E9,D7,J1
+	A5,C7,I8
+
+	E3,B4,C4,D1,F9,H5,A2,G3,I3,K2
+	B5,J4,A8

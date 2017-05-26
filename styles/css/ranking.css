@@ -1,0 +1,18 @@
+body {
+	
+	background: radial-gradient(circle, white, LightBlue);
+	font-family:monospace;
+	text-align: center;
+	}
+
+table {
+
+	margin-top: auto;
+	margin:auto;
+	text-align: center;
+}
+tr:hover {
+
+	font-size: 24px ;
+	background-color: #f5f5f5
+}

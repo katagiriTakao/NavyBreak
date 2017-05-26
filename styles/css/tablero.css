@@ -1,9 +1,18 @@
-body{
-	text-align:center;
-}
-
-td{
+table{
 	
-	border:black  solid 1em;
-	text-align:center;
+	background:radial-gradient(circle, white, LightBlue);
+
+}
+td{
+
+	padding: 10px;
+	border: double;
+	font-family: monospace;
+
+}
+td:hover{
+
+	background-color:blue;
+
+
 }

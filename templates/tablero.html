@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		
 		<meta charset="UTF-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="../styles/css/tablero.css"/>
@@ -21,7 +22,7 @@
 				<td >a8</td>
 				<td >a9</td>
 			</tr>	
-			<tr>
+<tr>
 				<td >b0</td>
 				<td >b1</td>
 				<td >b2</td>
@@ -133,16 +134,35 @@
 		</table>
 		<p></p>
 		<script>
-	
+			//la variable used genera un array con todas las casillas usadas, talvez la useas para algo, si no hay que borrarla.
+			var used=[];
 			$(document).ready(function(){
-    			$("td").dblclick(function(){
-       				$(this).toggleClass( "dbl" );
-       				//aqui agrego la funcion para comparar las clases dbl con el mapa contrario, 
-       				$("p").html()
-       				$(this).toggleClass( "dbl" );
+    			$("td").click(function(){
+       				var attack=$(this).html();
+       				
+       				//la casilla seleccionada para atacar sale en el output del $(this).html, el console log solo existe para hacer algo como un debug, la variable que pasa al php llamado transition es la de attack
+       				console.log(attack);
+       				//aqui se usa el used
+       				used.push(attack);
+       				console.log(used);
+       				$(this).unbind();
+       				$(this).css("background-color","red");
+       				$.ajax({
+       							type: "POST",
+       							url: "../programs/php/trancition.php",
+       							data: attack,
+       							success:function(attack){
+       								console.log("success");
+       							}
+
+
+
+       				});
   				  });
 				});
+			$("td").hover($(this).attr("style='background-color:blue'"));
 			
+
 		</script>
 		</body>
 
