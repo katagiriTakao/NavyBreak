@@ -29,6 +29,18 @@ else
 	foreach ($datos as $key => $exis) 
 		if ($usu == $exis['username'])
 		{
+//lo dejo comentado para que lo trabajes daniel, pero la netaa no se que hacer aqui
+			echo '<script> 
+				alert("Acceso concedido");
+				</script>';
+			header('location:../../templates/publicaciones.php');
+		}		
+		else
+			echo '<script> 
+				alert("Acceso denegado");
+				</script>';
+	}
+=======
 			if ($contra == $exis['password'])
 			{
 				echo '<script> 
@@ -42,5 +54,6 @@ else
 					alert("Acceso denegado");
 					</script>';
 		}
+////////////////////////////
 	
 ?>
