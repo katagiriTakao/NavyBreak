@@ -23,16 +23,32 @@ print_r($gameData);
 if($gameData['id_userone']==$_COOKIE['id_user']){
 	if(!compdata($gameData['cooseone'],$_POST['tiro']))
 	{
-		echo "tiro nuevo";
-		if(compdata($gameData['cooshtwo'],$_POST['tiro']))
-			echo $_POST['tiro'];
+		//echo "tiro nuevo primer jugador ";
+		$queryOne="update cgame set cooseone='".$gameData['cooseone'].",".$_POST['tiro']."' where id_game=".$gameData['id_game'].";";
+		//echo $queryOne;
+		if(mysqli_query($conexion,$queryOne))
+			echo "Datos mandados jug1";
+		if(compdata($gameData['cooshtwo'],$_POST['tiro'])){
+			echo $_POST['tiro']." ";
+			$puntos=$gameData['pone_points']+1;
+			$queryOnePoints="update cgame set pone_points='".$puntos."' where id_game=".$gameData['id_game'].";";
+			//echo $queryOnePoints;
+			if(mysqli_query($conexion,$queryOnePoints))
+				echo "Datos puntos actualizados p1";
+
+		}
+
 	}
 }
 else 
 if($gameData['id_usertwo']==$_COOKIE['id_user']){
 	if(!compdata($gameData['coosetwo'],$_POST['tiro']))
 	{
-		echo "tiro nuevo";
+		echo "tiro nuevo segundo jugador";
+		$queryTwo="update cgame set coosetwo='".$gameData['coosetwo'].",".$_POST['tiro']."' where id_game=".$gameData['id_game'].";";
+		echo $queryTwo;
+		if(mysqli_query($conexion,$queryTwo))
+			echo "Datos mandados jug2";
 		if(compdata($gameData['cooshone'],$_POST['tiro']))
 			echo $_POST['tiro'];
 	}
