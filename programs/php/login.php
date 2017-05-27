@@ -1,11 +1,12 @@
 <?php
  include("conexionMysql.php");
 $usu=$_POST['username'];
-$contra="S@7r0".$_POST['password']."p1M3^|RO";
+$contra=$_POST['password'];
+$contra=hash("adler32",$contra);
 $datos = array();
 $valus = 0;
 $conexion=mysqli_connect('localhost','root','','NavyBreak');
-	$query="select id_user,username,password,b_day,wgames from USER;";
+	$query="select id_user,username,password from USER;";
 	$res=mysqli_query($conexion,$query);
 	$fila=mysqli_fetch_assoc($res);
 	$concat="";
@@ -18,29 +19,28 @@ while($fila)
 foreach ($datos as $key => $exis) 
 	if ($usu == $exis['username'])
 		$valus = 1;
-if ($valus == 0)
+if ($valus == 0){
 	echo '<script> 
 				alert("El usuario no existe");
 				</script>';
+	//header('location:../../templates/login.html');
+}
 else
 	foreach ($datos as $key => $exis) 
-	if ($usu == $exis['username'])
-	{
-		if ($contra == $exis['password'])
+		if ($usu == $exis['username'])
 		{
-			echo '<script> 
-				alert("Acceso concedido");
-				</script>';
-			echo $exis['id_user'];
-			echo $exis['username'];
-			echo $exis['b_day'];
-			echo $exis['wgames'];
-		
-		}		
-		else
-			echo '<script> 
-				alert("Acceso denegado");
-				</script>';
-	}
+			if ($contra == $exis['password'])
+			{
+				echo '<script> 
+					alert("Acceso concedido");
+					</script>';
+				$id=$exis['id_user'];
+				setcookie('id_user',$id,time()+259200);
+			}		
+			else
+				echo '<script> 
+					alert("Acceso denegado");
+					</script>';
+		}
 	
 ?>

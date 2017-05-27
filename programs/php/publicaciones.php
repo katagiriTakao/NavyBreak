@@ -1,16 +1,21 @@
 <?php
  include("conexionMysql.php");
 	session_start();
+$id=$_COOKIE['id_user'];
 echo " <!DOCTYPE html>
 	<html lang='es'>
 	<head>
 		<meta charset='UTF-8'/>
 		<title>Publicaciones</title>
+		<script type='text/javascript' src='../javascript/jquery-3.2.1.js'></script>
 	</head>
 	<body>";
 $conexion=mysqli_connect('localhost','root','','NavyBreak');
+if(isset($_POST['logout']))
+{
+	setcookie('usuario',$id,time()-259200,"/");
+}
 //OJO: PARA SUBIR PUBLICAIONES Y COMENTARIOS, ALGUNOS DATOS SE TENDRAN QUE ENVIAR QUE ENVIAR POR METODO POST CON UN CIERTO NOMBRE, INCLUSO ALGUNOS DEBERAN SER HIDDEN, SI LO CREEN NECESARIO.
-
 if(isset($_POST['comment']))
 {
 	$idcom=0;
@@ -27,9 +32,7 @@ if(isset($_POST['comment']))
 	$coma="INSERT INTO COMMENT(id_comment,id_postcoment,id_usercomment,comment_text,comment_time,likes,mecaga) VALUES ('$idcom','$idpost','$idus','$com','$comti','$likes','$mecaga')";
 	$sub=mysqli_query($conexion,$coma);
 }
-
 if (isset($_POST['public']))
-
 {
 	$idpos=0;
 	$idus=$_POST['user'];
@@ -42,7 +45,6 @@ if (isset($_POST['public']))
 	$publ="INSERT INTO POST(id_post,id_userpost,post_text,post_time) VALUES ('$idpos','$idus','$pub','$pubti')";
 	$sub1=mysqli_query($conexion,$publ);
 }
-
 if(isset($_POST['likes']))
 {
 	$idcom=$_POST['idcom'];
@@ -77,12 +79,7 @@ if(isset($_POST['mecaga']))
 }
 echo "<table>";
 //Este query obtiene las publicaciones con username, el texto y el tiempo en que se realizo
-	$querypub="select id_post,username,post_text,post_time from POST join USER on POST.id_userpost=USER.id_user order by post_time DESC;";
-=======
-echo "<table>";
-//Este query obtiene las publicaciones con username, el texto y el tiempo en que se realizo
-	$querypub="select username,post_text,post_time from POST join USER on POST.id_userpost=USER.id_user order by post_time DESC;";
-
+	$querypub="select id_post,id_user,username,post_text,post_time from POST join USER on POST.id_userpost=USER.id_user order by post_time DESC;";
 	$res=mysqli_query($conexion,$querypub);
 	$fila=mysqli_fetch_assoc($res);
 //Este otro query obtiene los comentarios; username, texto, tiempo, likes y mecaga que componen al comentario. EL WHERE SE ENCARGA DE ASEGURARSE DE QUE LOS COMENTARIOS SEAN DE LA PUBLICACION Y EVITAR QUE TODOS LOS COMENTARIOS DE TODAS LAS PUBLICACIONES ESTEN EN UNA PUBLICACION
@@ -91,10 +88,10 @@ echo "<table>";
 	$comm=mysqli_fetch_assoc($resc);
 while($fila)
 {
-
 	echo $fila['id_post'];
-
 	echo $fila['username'];
+	echo "<br/>";
+	echo $fila['id_user'];
 	echo "<br/>";
 	echo $fila['post_time'];
 	echo "<br/>";
@@ -114,10 +111,38 @@ while($fila)
 		echo "<br/>";
 		$comm=mysqli_fetch_assoc($resc);
 	}
+	echo "<button class='chall'>Challenge</button><br/>";
 	$fila=mysqli_fetch_assoc($res);
 }
-session_unset();
 echo "</table>
+<script>
+
+		$('.chall').click(function(){
+
+			var duel='yes';
+			var challenger=id_user;
+			console.log(duel+'  '+challenger);
+			$(this).unbind();
+			$(this).html('CHALLENGE SENT');
+			
+
+		});
+
+		$.ajax({
+
+			type:'POST',
+			url:'../programs/php/chall.php',
+			data:'duel'+'challenger',
+			success:function(duel,challenger){
+       								console.log('success');
+       							}
+
+
+		});
+
+
+		</script>
 </body>
-	</html>"
+	</html>";
+	session_unset();
 ?>
