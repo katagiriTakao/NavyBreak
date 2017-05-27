@@ -39,21 +39,21 @@ else
 			echo '<script> 
 				alert("Acceso denegado");
 				</script>';
-	}
-=======
+	
+
 			if ($contra == $exis['password'])
 			{
 				echo '<script> 
 					alert("Acceso concedido");
 					</script>';
 				$id=$exis['id_user'];
-				setcookie('id_user',$id,time()+259200);
+				setcookie('id_user',$id,time()+259200,"/");
 			}		
 			else
 				echo '<script> 
 					alert("Acceso denegado");
 					</script>';
-		}
-////////////////////////////
+		
+
 	
 ?>
