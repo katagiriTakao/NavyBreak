@@ -1,6 +1,8 @@
 <?php
  include("conexionMysql.php");
 	session_start();
+$id=$_POST['user'];
+setcookie('usuario',$id,time()+259200);
 echo " <!DOCTYPE html>
 	<html lang='es'>
 	<head>
@@ -9,6 +11,10 @@ echo " <!DOCTYPE html>
 	</head>
 	<body>";
 $conexion=mysqli_connect('localhost','root','','NavyBreak');
+if(isset($_POST['logout']))
+{
+	setcookie('usuario',$id,time()-259200,"/");
+}
 //OJO: PARA SUBIR PUBLICAIONES Y COMENTARIOS, ALGUNOS DATOS SE TENDRAN QUE ENVIAR QUE ENVIAR POR METODO POST CON UN CIERTO NOMBRE, INCLUSO ALGUNOS DEBERAN SER HIDDEN, SI LO CREEN NECESARIO.
 if(isset($_POST['comment']))
 {
