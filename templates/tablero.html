@@ -146,18 +146,16 @@
        				//aqui se usa el used
        				used.push(attack);
        				console.log(used);
-       				$(this).unbind();
+       				
        				$(this).css("background-color","red");
        				$.ajax({
-       							type: "POST",
+       							type: "post",
        							url: "../programs/php/trancition.php",
-       							data: attack,
-       							success:function(attack){
-       								console.log("success");
+       							data: {"tiro": attack },
+       							success:function(result){
+       								console.log(result);
+       								$(this).unbind();
        							}
-
-
-
        				});
   				  });
 				});
