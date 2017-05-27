@@ -1,5 +1,6 @@
 <?php
  include("conexionMysql.php");
+ 	echo "<meta http-equiv='Refresh' content='0; URL=../../templates/login.html'>";
 	$conexion=mysqli_connect("localhost","root","","NavyBreak");
 	$id_us=0;
 	$usu=$_POST['username'];

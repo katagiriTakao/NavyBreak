@@ -1,5 +1,6 @@
 <?php
  include("conexionMysql.php");
+ echo "<meta http-equiv='Refresh' content='1; URL=../../templates/login.html'>";
 $usu=$_POST['username'];
 $contra=$_POST['password'];
 $contra=hash("adler32",$contra);
@@ -33,13 +34,13 @@ else
 			echo '<script> 
 				alert("Acceso concedido");
 				</script>';
-			header('location:../../templates/publicaciones.php');
+				header('location:publicaciones.php');
 		}		
-		else
+		else{
 			echo '<script> 
 				alert("Acceso denegado");
 				</script>';
-	
+			}
 
 			if ($contra == $exis['password'])
 			{
