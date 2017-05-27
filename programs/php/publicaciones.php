@@ -1,18 +1,25 @@
 <?php
  include("conexionMysql.php");
 	session_start();
+$id=$_COOKIE['id_user'];
 echo " <!DOCTYPE html>
 	<html lang='es'>
 	<head>
+
 		<title>Navy Break | Principal </title>
 		<link href='http://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
 		<link type='text/css' rel='stylesheet' href='../../styles/materialize/css/materialize.css'  media='screen,projection'/>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0'/>
 		<script type='text/javascript' src='../javascript/jquery-3.2.1.js'></script>
 		<meta charset='utf-8'>
+
 	</head>
 	<body class='light-blue lighten-5'>";
 $conexion=mysqli_connect('localhost','root','','NavyBreak');
+if(isset($_POST['logout']))
+{
+	setcookie('usuario',$id,time()-259200,"/");
+}
 //OJO: PARA SUBIR PUBLICAIONES Y COMENTARIOS, ALGUNOS DATOS SE TENDRAN QUE ENVIAR QUE ENVIAR POR METODO POST CON UN CIERTO NOMBRE, INCLUSO ALGUNOS DEBERAN SER HIDDEN, SI LO CREEN NECESARIO.
 if(isset($_POST['comment']))
 {
@@ -117,10 +124,38 @@ while($fila)
 		//echo .$comm['mecaga'].;
 		$comm=mysqli_fetch_assoc($resc);
 	}
+	echo "<button class='chall'>Challenge</button><br/>";
 	$fila=mysqli_fetch_assoc($res);
 }
-session_unset();
 echo "</table>
+<script>
+
+		$('.chall').click(function(){
+
+			var duel='yes';
+			var challenger=id_user;
+			console.log(duel+'  '+challenger);
+			$(this).unbind();
+			$(this).html('CHALLENGE SENT');
+			
+
+		});
+
+		$.ajax({
+
+			type:'POST',
+			url:'../programs/php/chall.php',
+			data:'duel'+'challenger',
+			success:function(duel,challenger){
+       								console.log('success');
+       							}
+
+
+		});
+
+
+		</script>
 </body>
-	</html>"
+	</html>";
+	session_unset();
 ?>
