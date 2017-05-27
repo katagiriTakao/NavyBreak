@@ -6,7 +6,7 @@ $gameData=mysqli_fetch_assoc($gameResources);
 
 $_POST['tiro']=strtoupper($_POST['tiro']);
 
-setcookie("id_user","1",time()+60);
+setcookie("id_user","2",time()+60);
 
 function compdata($selShips,$shot){
 	$selShips=explode(",",$selShips);
@@ -34,7 +34,7 @@ if($gameData['id_userone']==$_COOKIE['id_user']){
 			$queryOnePoints="update cgame set pone_points='".$puntos."' where id_game=".$gameData['id_game'].";";
 			//echo $queryOnePoints;
 			if(mysqli_query($conexion,$queryOnePoints))
-				echo "Datos puntos actualizados p1";
+				echo "Datos puntos actualizados P1";
 
 		}
 
@@ -49,8 +49,15 @@ if($gameData['id_usertwo']==$_COOKIE['id_user']){
 		echo $queryTwo;
 		if(mysqli_query($conexion,$queryTwo))
 			echo "Datos mandados jug2";
-		if(compdata($gameData['cooshone'],$_POST['tiro']))
-			echo $_POST['tiro'];
+		if(compdata($gameData['cooshone'],$_POST['tiro'])){
+			echo $_POST['tiro']." ";
+			$puntos=$gameData['ptwo_points']+1;
+			$queryTwoPoints="update cgame set ptwo_points='".$puntos."' where id_game=".$gameData['id_game'].";";
+			//echo $queryOnePoints;
+			if(mysqli_query($conexion,$queryTwoPoints))
+				echo "Puntos actualizados P2";
+
+		}
 	}
 }
 
