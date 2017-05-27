@@ -2,7 +2,15 @@
 Existen 3 ramas principales de busqueda, la mayoria es por id_user, estas son:
 	La busqueda de publicaciones y sus comentarios (Que permite el uso de la red social).
 	La busqueda de juegos actual(current game) (Que permite el funcionamiento del juego).
-	La busqueda de notificaciones (Que administra los duelos y las notifcaciones al admin). 
+	La busqueda de notificaciones (Que administra los duelos y las notifcaciones al admin).
+//queries de pagina de ususario
+	//Publicaciones
+	select id_post,id_user,username,post_text,post_time from POST join USER on POST.id_userpost=USER.id_user whereid_user='$id'order by 
+	post_time DESC;
+	//Comentarios 
+	select username,comment_text,comment_time,likes,mecaga from COMMENT join POST on 
+	COMMENT.id_postcomment=POST.id_post join USER on COMMENT.id_usercomment=USER.id_user WHERE id_post=id_postcomment AND id_user='$id'
+	order by post_time DESC;
 //Busqueda de username y password para login
 	select username,password from USER;
 //Busqueda de datos propios completos del usuario

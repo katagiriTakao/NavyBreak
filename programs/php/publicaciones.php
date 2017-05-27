@@ -1,13 +1,13 @@
 <?php
  include("conexionMysql.php");
 	session_start();
-$id=$_POST['user'];
-setcookie('usuario',$id,time()+259200);
+$id=$_COOKIE['id_user'];
 echo " <!DOCTYPE html>
 	<html lang='es'>
 	<head>
 		<meta charset='UTF-8'/>
 		<title>Publicaciones</title>
+		<script type='text/javascript' src='../javascript/jquery-3.2.1.js'></script>
 	</head>
 	<body>";
 $conexion=mysqli_connect('localhost','root','','NavyBreak');
@@ -111,10 +111,38 @@ while($fila)
 		echo "<br/>";
 		$comm=mysqli_fetch_assoc($resc);
 	}
+	echo "<button class='chall'>Challenge</button><br/>";
 	$fila=mysqli_fetch_assoc($res);
 }
-session_unset();
 echo "</table>
+<script>
+
+		$('.chall').click(function(){
+
+			var duel='yes';
+			var challenger=id_user;
+			console.log(duel+'  '+challenger);
+			$(this).unbind();
+			$(this).html('CHALLENGE SENT');
+			
+
+		});
+
+		$.ajax({
+
+			type:'POST',
+			url:'../programs/php/chall.php',
+			data:'duel'+'challenger',
+			success:function(duel,challenger){
+       								console.log('success');
+       							}
+
+
+		});
+
+
+		</script>
 </body>
-	</html>"
+	</html>";
+	session_unset();
 ?>
